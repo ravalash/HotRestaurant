@@ -19,7 +19,7 @@
             <div class="card horizontal">
                 <div class="card-stacked">
                     <div class="card-content">
-                        <h5>We only have 5 tables! Book your seat before they all are gone!
+                        <h5 id="tableStatus">We only have 5 tables! Book your seat before they all are gone!
                         </h5>
                     </div>
                     <div class="card-action">
@@ -33,6 +33,12 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script type="text/javascript">
+        $.get("/api/tables/", function (data) {
+            $("#tableStatus").text(`We only have ${5-data.length} tables! Book your seat before they all are gone!`)
+        })
+    </script>
 </body>
 
 </html>
