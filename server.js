@@ -18,8 +18,12 @@ const tables = [
   {
     customerName: "Adam",
     phoneNumber: "2151111111",
-    customerEmail: "none@none.com",
-    customerID: 394542
+    customerEmail: "none@none.com"
+  },
+  {
+    customerName: "Ernesto",
+    phoneNumber: "2151111112",
+    customerEmail: "none1@none.com"
   }
 ];
 

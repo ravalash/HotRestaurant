@@ -9,6 +9,7 @@
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://code.jquery.com/jquery.js"></script>
     <title>Hot Restaurant</title>
 </head>
 
@@ -51,6 +52,42 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript">
+    var test = [];
+
+      $.get("/api/tables/", function(data) {
+      for(i=0;i<data.length;i++){
+        var tableCard = 
+        $(`<div class = "card">
+            <div class = "card-content">
+            <span class = "card-title">Table ${i+1}</span>
+            <p>Customer Name: ${data[i].customerName}</p>
+            <p>Phone Number: ${data[i].phoneNumber}</p>
+            <p>Email Address: ${data[i].customerEmail}</p>
+            </div>
+            </div>`)
+            $("#tableList").append(tableCard);
+        }
+      });
+      $.get("/api/waitlist/", function(data) {
+        for(i=0;i<data.length;i++){
+        var waitListCard = 
+        $(`<div class = "card">
+            <div class = "card-content">
+            <span class = "card-title">Wait List Spot ${i+1}</span>
+            <p>Customer Name: ${data[i].customerName}</p>
+            <p>Phone Number: ${data[i].phoneNumber}</p>
+            <p>Email Address: ${data[i].customerEmail}</p>
+            </div>
+            </div>`)
+            $("#waitingList").append(waitListCard);
+        }    
+        });
+
+      </script>
 </body>
 
 </html>
+
+
+
