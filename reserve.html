@@ -68,6 +68,16 @@
             }
             $.post("/api/tables", newReservation).then(function (response) {
                 console.log(response.status)
+                if (response.status === "waitlist") {
+                    alert ("Sorry, all tables are full. You have been added to the waitlist");
+                }
+                else {
+                    alert("Your reservation has been booked!");
+                }
+                $("#name").val("");
+                $("#email").val("");
+                $("#phone").val("");
+
             })
 
         })
