@@ -58,6 +58,18 @@ app.get("/api/waitlist", function (req, res) {
   return res.json(waitlist);
 });
 
+// Clears Table objects
+app.get("/api/cleartables", function (req, res) {
+  while (tables.length >0) {
+    tables.pop();
+  }
+  while (waitlist.length >0) {
+    waitlist.pop();
+  }
+  res.redirect("/tables");
+  
+});
+
 
 // Create new reservation - takes in JSON input
 app.post("/api/tables", function (req, res) {
