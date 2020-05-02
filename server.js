@@ -60,8 +60,6 @@ app.post("/api/tables", function (req, res) {
 
   var newReservation = req.body;
 
-  // Using a RegEx Pattern to remove spaces from newCharacter
-  // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
   if (tables.length >= 5) {
     waitlist.push(newReservation);
     res.json({ status: 'waitlist' })
